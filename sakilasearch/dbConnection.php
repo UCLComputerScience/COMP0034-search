@@ -5,7 +5,7 @@ require_once('dbCredentials.php');
 //Connect to a database with error handling
 function connectToDb()
 {
-    $connection = new mysqli(DBSERVER, DBUSER, DBPASSWORD, DBNAME,DBPORT);
+    $connection = new mysqli(DBSERVER, DBUSER, DBPASSWORD, DBNAME);
     validateConnection($connection);
     return $connection;
 }

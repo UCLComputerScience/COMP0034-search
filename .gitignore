@@ -1,1 +1,16 @@
 # Created by .ignore support plugin (hsz.mobi)
+/sakilasearch/validateJson.php
+.DS_Store
+.idea/dataSources.local.xml
+.idea/dataSources.xml
+.idea/dataSources/
+.idea/deployment.xml
+.idea/encodings.xml
+.idea/jsLibraryMappings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/sqldialects.xml
+.idea/workspace.xml
+bookshop/.DS_Store
+sakilasearch/.DS_Store
+sakilasearch/search1.js

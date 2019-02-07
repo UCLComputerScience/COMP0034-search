@@ -15,3 +15,4 @@ bookshop/.DS_Store
 sakilasearch/.DS_Store
 sakilasearch/search.js
 !/sakilasearch/search.js
+.idea

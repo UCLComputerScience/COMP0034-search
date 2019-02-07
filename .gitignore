@@ -13,4 +13,5 @@
 .idea/workspace.xml
 bookshop/.DS_Store
 sakilasearch/.DS_Store
-sakilasearch/search1.js
+sakilasearch/search.js
+!/sakilasearch/search.js

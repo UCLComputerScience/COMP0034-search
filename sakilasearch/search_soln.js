@@ -35,17 +35,31 @@ $(function () {
     //When the search form is submitted, return the search results as a list within the main section of the page
     $('#search_form').submit(function (event) {
 
+        let inputVal = $("#searchterm").val();
+
+        $.getJSON("search.php", {term: inputVal})
+
+            .done(function (data) {
+
+            let html = "<table class='table table-hover'>";
+            html += "<thead><tr><td>Title</td><td>Description</td><td>Year released</td></tr></thead>"
+
+            $.each(data, function (key, value) {
+                html += "<tr><td>" + value['title'] + "</td>";
+                html += "<td>" + value['description'] + "</td>";
+                html += "<td>" + value['release_year'] + "</td></tr>";
+            });
+
+            html += "</table>";
+
+            $("#searchresult").html(html);
+
+        });
+
         // Stop the form from submitting the normal way as this would cause the page to refresh
         event.preventDefault();
 
-        //Get the search term
-
-
-        //Create a $.getJSON request for search and pass the term, on success (done)
-        //iterate throuh the data ib the array and put the values into an appropriate
-        // element in the html
-
-
     });
+
 
 });

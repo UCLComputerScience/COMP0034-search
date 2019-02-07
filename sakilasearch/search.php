@@ -4,16 +4,15 @@ require_once('dbConnection.php');
 //Connect to the database
 $connection = connectToDb();
 
-// Capture the user's search term input
-// This is the 'term' parameter that is passed with the GET Ajax method in the search.js
-$term = isset($_GET['term']) ?? '';
+// Capture the user's search term input (from the getJSON request)
+$term = isset($_GET['term']) ? $_GET['term'] : '';
 $term = $connection->real_escape_string($term);
 
 //Initialize an array variable to hold the resulting data
 $json = array();
 
-// Prepare the sql SELECT statement to find film titles
-$sql = "SELECT DISTINCT title FROM film ";
+// sql SELECT statement to find film titles
+$sql = "SELECT DISTINCT title, description, release_year FROM film ";
 $sql .= "INNER JOIN inventory ON film.film_id = inventory.film_id ";
 $sql .= "INNER JOIN rental ON inventory.inventory_id = rental.inventory_id ";
 $sql .= "WHERE rental.return_date IS NOT NULL AND film.title LIKE '%" . $term . "%' ";
@@ -50,3 +49,4 @@ if ($result = $connection->query($sql)) {
 
 //Return the array in JSON format
 echo json_encode($json);
+exit;
